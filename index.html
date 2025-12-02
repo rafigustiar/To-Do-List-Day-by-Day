@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List Produktif</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="app-shell">
+    <header class="app-header">
+        <div class="branding">
+            <span class="logo-dot"></span>
+            <div>
+                <h1>To-Do List Day by Day</h1>
+                <p>Catat, tandai selesai, dan kelola kegiatanmu dengan mudah.</p>
+            </div>
+        </div>
+        <div class="header-meta">
+            <div class="meta-card">
+                <div class="label">Hari ini</div>
+                <div id="today-label" class="value"></div>
+            </div>
+            <div class="meta-card">
+                <div class="label">Mood produktif</div>
+                <div class="pill pill-green">On 🔥</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section class="panel panel-main">
+            <header class="panel-header">
+                <h2>Daftar Kegiatan</h2>
+                <p>Tambah kegiatan menggunakan tombol <strong>Tambah</strong> atau tekan <strong>Enter</strong>.</p>
+            </header>
+
+            <form id="todo-form" class="todo-form">
+                <div class="input-group">
+                    <input type="text"
+                           id="todo-input"
+                           placeholder="Contoh: Mengerjakan laporan praktikum, belajar demo praktikum, olahraga sore..."
+                           autocomplete="off">
+                </div>
+                <div class="input-row-secondary">
+                    <div class="select-wrapper">
+                        <label for="priority">Prioritas</label>
+                        <select id="priority">
+                            <option value="normal">Normal</option>
+                            <option value="high">Tinggi</option>
+                            <option value="low">Rendah</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <label for="category">Kategori</label>
+                        <select id="category">
+                            <option value="Umum">Umum</option>
+                            <option value="Kuliah">Kuliah</option>
+                            <option value="Proyek">Proyek</option>
+                            <option value="Pribadi">Pribadi</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn primary">+ Tambah Kegiatan</button>
+                </div>
+            </form>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="active">Belum Selesai</button>
+                <button class="filter-btn" data-filter="done">Selesai</button>
+                <button id="clear-completed" class="filter-btn danger">Bersihkan Selesai</button>
+            </div>
+
+            <ul id="todo-list" class="todo-list">
+                <!-- item akan di-append lewat JS -->
+            </ul>
+
+            <div class="empty-state" id="empty-state">
+                <div class="empty-icon">☕</div>
+                <p>Belum ada kegiatan. Mulai dengan menulis satu tugas kecil dulu.</p>
+            </div>
+        </section>
+
+        <aside class="panel panel-side">
+            <header class="panel-header">
+                <h2>Ringkasan Hari Ini</h2>
+                <p>Progress to-do list kamu.</p>
+            </header>
+
+            <div class="stats">
+                <div class="stat-row">
+                    <span>Total Kegiatan</span>
+                    <span id="stat-total">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Selesai</span>
+                    <span id="stat-completed">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Belum Selesai</span>
+                    <span id="stat-remaining">0</span>
+                </div>
+            </div>
+
+            <div class="progress-block">
+                <div class="progress-label">
+                    Progress
+                    <span id="progress-label">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h3>Tujuan Praktikum</h3>
+                <ul>
+                    <li>Menerapkan manipulasi DOM dengan JavaScript &amp; jQuery</li>
+                    <li>Menggunakan HTML sebagai struktur halaman</li>
+                    <li>Menggunakan CSS untuk memperindah tampilan</li>
+                </ul>
+
+                <h3>Fitur yang Diterapkan</h3>
+                <ul>
+                    <li>Input dan tambah kegiatan (tombol &amp; Enter)</li>
+                    <li>Hapus kegiatan dengan jQuery event delegation</li>
+                    <li>Manipulasi DOM (<code>append</code>, <code>remove</code>)</li>
+                    <li>Desain UI modern dengan CSS</li>
+                    <li>Filter (Semua / Belum / Selesai)</li>
+                    <li>Data tersimpan otomatis di <code>localStorage</code></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="app-footer">
+        <p>To-Do List DOM &amp; jQuery Demo · Dibuat dengan semangat belajar 💻</p>
+    </footer>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
